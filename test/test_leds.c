@@ -19,3 +19,20 @@
  7) El led 1 corresponde al lsb y el led 16 al msb.
  8) El reset de hardware no define un estado conocido de los led’s, estos deben ser apagados por software.
 */ 
+/**
+ *  1) Con la inicialización todos los leds quedan apagados 
+ *  2) Prender un led individual 
+ *  3) Prender y apagar multiples leds 
+ *  4) Consultar el estado de un led que esta encendido 
+ *  5) Consultar el estado de un led que esta apagado
+ *  6) Revisar limites de los parámetros 
+ *  7) Revisar parámetros fuera de los parámetros 
+ *  
+ * */ 
+
+#include "unity.h" 
+
+
+void test_primer_test_que_falla(void){ 
+    TEST_FAIL_MESSAGE("EMPEZAMOS")  ; 
+}
