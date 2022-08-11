@@ -9,16 +9,7 @@
  * 
  */
 
-/*  Requisitos 
- 1)Maneja 16 leds de dos estados (encendido y apagado).
- 2) Se puede cambiar el estado de un led sin afectar a los otros.
- 3) Se puede cambiar el estado de todos los led’s en una sola operación.
- 4) Se puede recuperar el estado actual de un led.
- 5) Los led’s están mapeados en una palabra de 16 bits en memoria en una dirección a determinar.
- 6) Para encender el led se debe escribir un “1” en el bit y para apagarlo se debe escribir un “0”.
- 7) El led 1 corresponde al lsb y el led 16 al msb.
- 8) El reset de hardware no define un estado conocido de los led’s, estos deben ser apagados por software.
-*/ 
+
 /**
  *  1) Con la inicialización todos los leds quedan apagados 
  *  2) Prender un led individual 
