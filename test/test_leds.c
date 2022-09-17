@@ -61,7 +61,6 @@
 uint16_t leds_virtuales = LEDS_ALL_ON ; 
 void setUp(void){ 
     LedsCreate(&leds_virtuales) ; 
-
 }
 
 
@@ -101,20 +100,28 @@ void test_apagar_multiples_leds(void){
 
 
 //5 Prender todos los leds de una vez
+/**
+ * @brief Primero apago todos los leds, y luego los prendo a todos 
+ * 
+ */
+
 void test_prender_todos_los_leds(void){ 
-    LedsSingleTurnOn(LEDS_1_ALL_ON_TEST_5) ; 
-    LedsSingleTurnOn(LEDS_2_ALL_ON_TEST_5) ; 
-    LedsTurnOnAll()                          ;     
+    LedsTurnOffAll() ;     
+    LedsTurnOnAll()  ;     
 
     TEST_ASSERT_EQUAL(LEDS_ALL_ON,leds_virtuales) ; 
 }
 
 
-//6 Apagar todos los leds de una vez  
+//6 Apagar todos los leds de una vez 
+/**
+ * @brief Primero prendo todos los leds, y luego los apago a todos 
+ * 
+ */
 void test_apagar_todos_los_leds(void){ 
-    LedsSingleTurnOn(LEDS_1_ALL_OFF_TEST_6)   ; 
-    LedsSingleTurnOn(LEDS_2_ALL_OFF_TEST_6)  ; 
-    LedsTurnOffAll()      ; 
+
+    LedsTurnOnAll()  ; 
+    LedsTurnOffAll() ; 
     TEST_ASSERT_EQUAL(LEDS_ALL_OFF,leds_virtuales) ;
     
 }
