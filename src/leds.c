@@ -14,11 +14,10 @@ static bool isValidNumberLed(uint8_t number_led){
     bool response ; 
     if (number_led<MIN_VALUE_LED | number_led>MAX_VALUE_LED){
         response = false ; 
-    }else response = true ; 
-
+    }else{ 
+         response = true ; 
+    }
     return response ; 
-
-
 }
 
 static uint16_t LedsToMask(uint8_t number_led) { 
@@ -32,7 +31,9 @@ void LedsCreate(uint16_t *address){
 }
 
 void LedsSingleTurnOn(uint8_t number_led){   
-    if(isValidNumberLed(number_led) == false) return ; 
+    if(isValidNumberLed(number_led) == false){
+        return   ; 
+    }
     *puerto |= LedsToMask(number_led) ; 
 }
 
@@ -47,14 +48,13 @@ void LedsTurnOffAll(){
 }
 
 void LedsTurnOnAll(){ 
-   
     *puerto = LEDS_ALL_ON ; 
 }
 
 uint8_t LedsState(uint8_t number_led) { 
-    if(isValidNumberLed(number_led) == false) return -1; 
-    uint16_t LedsState = LedsToMask(number_led) ; ///copia de valores en ledState 
-    LedsState &=  ((*puerto)) ; 
-    LedsState = LedsState>>(number_led-LEDS_NUMBER_OFFSET)   ; 
-    return ((uint8_t)LedsState) ; 
+   if(isValidNumberLed(number_led) == false){
+       return -1; 
+   }
+   uint16_t LedsState = (*puerto) & LedsToMask(number_led) ;
+   return LedsState ? 1 : 0; 
 }
